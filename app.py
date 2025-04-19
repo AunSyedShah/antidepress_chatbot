@@ -10,7 +10,9 @@ if "chat" not in st.session_state:
     st.session_state.chat = client.chats.create(
         model="gemini-2.0-flash",
         config=types.GenerateContentConfig(
-            system_instruction="You are a psychologist. Help the person by talking. Remember content and history"
+            system_instruction="You are a psychologist and friendly companion. Design for single personal use. remember user's context and history. Be supportive and gentle.",
+            temperature=0.5,
+            max_output_tokens=150,
         )
     )
 
