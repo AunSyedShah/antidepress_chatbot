@@ -1,9 +1,15 @@
 import streamlit as st
 from google import genai
 from google.genai import types
+import os
+from dotenv import load_dotenv
 
+load_dotenv()
+
+
+api_key = os.getenv("api_key")
 # Initialize Gemini client with your provided key
-client = genai.Client(api_key="AIzaSyAQm7AwskmDw_wYkSVdOxVcXMj3DsWWIAw")
+client = genai.Client(api_key=api_key)
 
 # Setup chat on first load
 if "chat" not in st.session_state:
